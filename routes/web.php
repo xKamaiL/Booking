@@ -20,6 +20,11 @@ Route::middleware('auth')->group(function () {
      * Book R0ute
      */
     Route::get('/rent_book', 'BookController@index')->name("book.index");
+    Route::post('/api/book/search', 'BookController@search')->name("book.search");
+    /*
+     * Book R0ute
+     */
+
 });
 Route::get("/login","AuthController@login_index")->name("login");
 Route::get("/logout", function (){
