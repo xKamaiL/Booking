@@ -41,5 +41,6 @@
     var $base_url = "{{ url("/") }}";
     $(document).ready(function() { $('body').bootstrapMaterialDesign(); });
 </script>
+@stack("js")
 </body>
 </html>
