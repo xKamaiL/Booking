@@ -30,12 +30,14 @@
 <div style="margin-top: 50px" class="row">
     @yield("content")
 </div>
+<hr>
 <script src="{{ url("assets/js/jquery-3.2.1.slim.min.js") }}"></script>
 <script src="{{ url("assets/js/popper.js") }}"></script>
 <script src="https://unpkg.com/sweetalert/dist/sweetalert.min.js"></script>
 <script src="{{ url("assets/js/bootstrap-material-design.min.js") }}"></script>
 <script src="{{ url("engine.js") }}"></script>
 <script>
+    var $get_url = "{{ route("book.search") }}";
     var $base_url = "{{ url("/") }}";
     $(document).ready(function() { $('body').bootstrapMaterialDesign(); });
 </script>
