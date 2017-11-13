@@ -3,6 +3,7 @@ $.ajaxSetup({
         'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
     }
 });
+var cat = "all";
 function swAlert($title,$msg,$type){
     return swal($title, $msg, $type,{
         button: "ตกลง",
@@ -29,11 +30,32 @@ function loadBook(){
     },'json');
 
 }
+function getAllBook() {
+    $.post($get_url, { "cat": "all","search": null},function(data){
+        $(".book-list").html(data);
+    });
+}
+function getBook(text){
+    $.post($get_url, { "cat": cat,"search": text},function(data){
+        $(".book-list").html(data);
+    });
+}
 $(document).ready(function(){
+
+    $(".btn-select-cat").click(function (event) {
+        event.preventDefault();
+        $(".btn-select-cat").removeClass("active");
+        $(this).addClass("active");
+        var $input = $(".search-value").val();
+        cat = $(this).attr("data-id");
+        $(".book-list").html('<h3>กำลังโหลดข้อมูล... <i class="fa fa-spinner fa-spin"></i></h3>');
+        getBook($input);
+    });
     $(".xkamail").click(function (event) {
         event.preventDefault();
         var $input = $(".search-value").val();
-        $(".book-list").html('กำลังโหลดข้อมูล... <i class="fa fa-spinner fa-spin"></i>');
+        $(".book-list").html('<h3>กำลังโหลดข้อมูล... <i class="fa fa-spinner fa-spin"></i></h3>');
+        getBook($input);
     });
     $("form.ajax").submit(function(event){
         event.preventDefault();
