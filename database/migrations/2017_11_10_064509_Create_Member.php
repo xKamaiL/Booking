@@ -16,8 +16,11 @@ class CreateMember extends Migration
         Schema::create("student",function (Blueprint $blueprint){
             $blueprint->increments("uid");
             $blueprint->mediumInteger("student_id");
+            $blueprint->unique("student_id");
             $blueprint->mediumText("real_name");
             $blueprint->integer("number");
+            $blueprint->text("classroom");
+            $blueprint->text("consult");
             $blueprint->rememberToken();
             $blueprint->timestamps();
         });

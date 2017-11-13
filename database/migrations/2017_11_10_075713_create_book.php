@@ -20,6 +20,7 @@ class CreateBook extends Migration
            $blueprint->longText("detail");
            $blueprint->integer("cat_id");
            $blueprint->enum("status",["active","off"]);
+           $blueprint->longText("picture");
            $blueprint->timestamps();
         });
         Schema::create("book_category",function (Blueprint $blueprint){
@@ -37,6 +38,6 @@ class CreateBook extends Migration
     public function down()
     {
         Schema::dropIfExists("book");
-        Schema::dropIfExists("category");
+        Schema::dropIfExists("book_category");
     }
 }
