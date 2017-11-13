@@ -34,6 +34,16 @@
 @endsection
 @push("css")
     <style>
+        .text-scroll{
+            height:50px;
+            overflow:auto;
+            margin-bottom: 20px;
+        }
+        .btn-rent{
+            position: absolute;
+            left: 0;
+            bottom: -5;
+        }
         .center{
             text-align: center;
         }
@@ -47,3 +57,8 @@
         }
     </style>
 @endpush
+@push("js")
+    <script>
+        getAllBook();
+    </script>
+    @endpush
